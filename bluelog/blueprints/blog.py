@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-    :author: Grey Li (李辉)
-    :url: http://greyli.com
-    :copyright: © 2018 Grey Li <withlihui@gmail.com>
+    :author: perfectbullet
+    :url: http://https://github.com/perfectbullet
+    :copyright: © 2018 perfectbullet <withlihui@gmail.com>
     :license: MIT, see LICENSE for more details.
 """
 from flask import render_template, flash, redirect, url_for, request, current_app, Blueprint, abort, make_response
@@ -16,6 +16,19 @@ from bluelog.utils import redirect_back
 
 blog_bp = Blueprint('blog', __name__)
 
+
+@blog_bp.route("/generate_qr_code/", methods=['GET'])
+def generate_qr_code():
+    """
+    生成二维码
+
+    :return:
+    """
+    name = request.args.get('username')  # 获取查询参数name的值
+    dataid = request.args.get('dataid')     # 单据的id
+    outersys = request.args.get('outersys')     # 请求系统
+    datatime = request.args.get('datatime')     # 单据时间
+    return '<h1>Hello, {}, {}, {}, {}!</h1>'.format(name, dataid, outersys, datatime)  # 插入到返回值中
 
 @blog_bp.route('/')
 def index():

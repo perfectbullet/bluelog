@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-    :author: Grey Li (李辉)
-    :url: http://greyli.com
-    :copyright: © 2018 Grey Li <withlihui@gmail.com>
+    :author: perfectbullet
+    :url: http://https://github.com/perfectbullet
+    :copyright: © 2018 perfectbullet <withlihui@gmail.com>
     :license: MIT, see LICENSE for more details.
 """
 from flask import url_for
@@ -106,7 +106,7 @@ class AdminTestCase(BaseTestCase):
         response = self.client.post(url_for('blog.show_post', post_id=1), data=dict(
             author='Guest',
             email='a@b.com',
-            site='http://greyli.com',
+            site='http://https://github.com/perfectbullet',
             body='I am a guest comment.',
             post=Post.query.get(1),
         ), follow_redirects=True)
@@ -255,7 +255,7 @@ class AdminTestCase(BaseTestCase):
 
     def test_blog_setting(self):
         response = self.client.post(url_for('admin.settings'), data=dict(
-            name='Grey Li',
+            name='perfectbullet',
             blog_title='My Blog',
             blog_sub_title='Just some raw ideas.',
             bio='I am ...',
@@ -267,7 +267,7 @@ class AdminTestCase(BaseTestCase):
 
         response = self.client.get(url_for('admin.settings'))
         data = response.get_data(as_text=True)
-        self.assertIn('Grey Li', data)
+        self.assertIn('perfectbullet', data)
         self.assertIn('My Blog', data)
 
         response = self.client.get(url_for('blog.about'), follow_redirects=True)

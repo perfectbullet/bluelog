@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-    :author: Grey Li (李辉)
-    :url: http://greyli.com
-    :copyright: © 2018 Grey Li <withlihui@gmail.com>
+    :author: perfectbullet
+    :url: http://https://github.com/perfectbullet
+    :copyright: © 2018 perfectbullet <withlihui@gmail.com>
     :license: MIT, see LICENSE for more details.
 """
 import unittest
@@ -24,7 +24,7 @@ class BaseTestCase(unittest.TestCase):
         self.runner = app.test_cli_runner()
 
         db.create_all()
-        user = Admin(name='Grey Li', username='grey', about='I am test', blog_title='Testlog', blog_sub_title='a test')
+        user = Admin(name='perfectbullet', username='grey', about='I am test', blog_title='Testlog', blog_sub_title='a test')
         user.set_password('123')
         db.session.add(user)
         db.session.commit()
